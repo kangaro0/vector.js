@@ -3,10 +3,10 @@ export default class Vec2 {
 
     public static SIZE = 2;
 
-    readonly #data: Float32Array;
+    readonly #data: Array<number> | Float32Array;
     readonly #offset: number;
 
-    constructor(data: Float32Array = new Float32Array(Vec2.SIZE), offset: number = 0) {
+    constructor(data: Array<number> | Float32Array = new Array(Vec2.SIZE), offset: number = 0) {
         this.#data = data;
         this.#offset = offset;
     }
@@ -50,7 +50,7 @@ export default class Vec2 {
     }
 
     get angle_x() {
-        return Math.acos(Math.atan2(this.x, this.y));
+        return Math.atan2(this.y, this.x);
     }
 
     public add(vec: Vec2) {
